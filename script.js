@@ -25,6 +25,16 @@ function fitElementToParent(el, padding) {
     var duration = 450;
     var animation;
     
+    const colors = [
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'purple',
+        'pink',  
+    ];
+
     fitElementToParent(easingVisualizerEl, 0);
   
     for (var i = 0; i < numberOfBars; i++) {
@@ -32,7 +42,9 @@ function fitElementToParent(el, padding) {
       var dotEl = document.createElement('div');
       barEl.classList.add('bar');
       dotEl.classList.add('dot');
-      barEl.style.backgroundImage= `linear-gradient(180deg, #373734 10%, #242423 52%, #0D0D0C 100%)`;
+      barEl.style.borderRadius = `5px`;
+      barEl.style.filter = `blur(1px)`;
+      barEl.style.backgroundImage= `linear-gradient(180deg, ${colors[i%colors.length]} 10%, #242423 52%, ${colors[i%colors.length]} 100%)`;
       dotEl.style.backgroundColor = `#ff${i<10&&`0${i}`||i}00`;
       dotEl.classList.add('color-red');
       barsFragment.appendChild(barEl);
